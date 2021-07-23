@@ -31,7 +31,7 @@ data class ChavePixRequest(
 enum class TipoDeChaveRequest(val atributoGrpc: TipoDeChave) {
 
     EMAIL(TipoDeChave.EMAIL) {
-        override fun validaChave(chave: String): Boolean {
+        override fun validaChave(chave: String?): Boolean {
             if (chave.isNullOrBlank()) {
                 return false
             }
@@ -42,7 +42,7 @@ enum class TipoDeChaveRequest(val atributoGrpc: TipoDeChave) {
         }
     },
     CELULAR(TipoDeChave.CELULAR) {
-        override fun validaChave(chave: String): Boolean {
+        override fun validaChave(chave: String?): Boolean {
             if (chave.isNullOrBlank()) {
                 return false
             }
@@ -50,7 +50,7 @@ enum class TipoDeChaveRequest(val atributoGrpc: TipoDeChave) {
         }
     },
     CPF(TipoDeChave.CPF) {
-        override fun validaChave(chave: String): Boolean {
+        override fun validaChave(chave: String?): Boolean {
             if (chave.isNullOrBlank()) {
                 return false
             }
@@ -66,10 +66,10 @@ enum class TipoDeChaveRequest(val atributoGrpc: TipoDeChave) {
         }
     },
     ALEATORIA(TipoDeChave.ALEATORIA) {
-        override fun validaChave(chave: String) = chave.isNullOrBlank()
+        override fun validaChave(chave: String?) = chave.isNullOrBlank()
     };
 
-    abstract fun validaChave(chave: String): Boolean
+    abstract fun validaChave(chave: String?): Boolean
 }
 
 enum class TipoDeContaRequest(val atributoGrpc: TipoDeConta) {
