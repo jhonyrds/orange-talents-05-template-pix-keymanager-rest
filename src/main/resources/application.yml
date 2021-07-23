@@ -1,3 +1,13 @@
 micronaut:
   application:
     name: templatePixKymanagerRest
+  server:
+    port: ${SERVER_PORT:8081}
+
+grpc:
+  client:
+    plaintext: true
+    max-retry-attemps: 10
+  channels:
+    keyManager:
+      address: '${KEY_MANAGER_HOST:localhost}:${KEY_MANAGER_PORT:50051}'
