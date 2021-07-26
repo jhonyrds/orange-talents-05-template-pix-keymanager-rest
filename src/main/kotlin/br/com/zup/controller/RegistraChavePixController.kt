@@ -12,7 +12,6 @@ import io.micronaut.http.annotation.Post
 import io.micronaut.http.exceptions.HttpStatusException
 import io.micronaut.validation.Validated
 import org.slf4j.LoggerFactory
-
 import java.util.*
 import javax.validation.Valid
 
@@ -36,6 +35,9 @@ class RegistraChavePixController(private val registraChavePixClient: PixKeymanag
 
             if (statusCode == Status.Code.INVALID_ARGUMENT) {
                 throw HttpStatusException(HttpStatus.BAD_REQUEST, description)
+            }
+            if (statusCode == Status.Code.ALREADY_EXISTS) {
+                throw HttpStatusException(HttpStatus.UNPROCESSABLE_ENTITY, description)
             }
             throw HttpStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.message)
         }
