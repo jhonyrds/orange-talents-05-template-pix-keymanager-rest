@@ -3,6 +3,7 @@ package br.com.zup.shared.factory
 import br.com.zup.PixConsultaChaveServiceGrpc
 import br.com.zup.PixDeletaServiceGrpc
 import br.com.zup.PixKeymanagerGrpcServiceGrpc
+import br.com.zup.PixListaChavesServiceGrpc
 import io.grpc.ManagedChannel
 import io.micronaut.context.annotation.Factory
 import io.micronaut.grpc.annotation.GrpcChannel
@@ -19,5 +20,8 @@ class KeyGrpcClientFactory(@GrpcChannel("keyManager") val channel: ManagedChanne
 
     @Singleton
     fun detalhaChave() = PixConsultaChaveServiceGrpc.newBlockingStub(channel)
+
+    @Singleton
+    fun listaChave() = PixListaChavesServiceGrpc.newBlockingStub(channel)
 
 }
