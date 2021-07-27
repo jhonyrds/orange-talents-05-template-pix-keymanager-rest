@@ -1,4 +1,4 @@
-package br.com.zup.controller.response
+package br.com.zup.response
 
 import br.com.zup.ConsultaChaveResponse
 import br.com.zup.TipoDeConta

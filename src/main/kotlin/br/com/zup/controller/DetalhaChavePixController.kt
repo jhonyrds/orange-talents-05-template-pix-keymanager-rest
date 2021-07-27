@@ -2,7 +2,7 @@ package br.com.zup.controller
 
 import br.com.zup.ConsultaChaveRequest
 import br.com.zup.PixConsultaChaveServiceGrpc
-import br.com.zup.controller.response.DetalhaChaveResponse
+import br.com.zup.response.DetalhaChaveResponse
 import io.grpc.Status
 import io.grpc.StatusRuntimeException
 import io.micronaut.http.HttpResponse
