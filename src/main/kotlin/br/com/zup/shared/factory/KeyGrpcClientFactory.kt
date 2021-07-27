@@ -1,5 +1,6 @@
 package br.com.zup.shared.factory
 
+import br.com.zup.PixConsultaChaveServiceGrpc
 import br.com.zup.PixDeletaServiceGrpc
 import br.com.zup.PixKeymanagerGrpcServiceGrpc
 import io.grpc.ManagedChannel
@@ -15,5 +16,8 @@ class KeyGrpcClientFactory(@GrpcChannel("keyManager") val channel: ManagedChanne
 
     @Singleton
     fun deletaChave() = PixDeletaServiceGrpc.newBlockingStub(channel)
+
+    @Singleton
+    fun detalhaChave() = PixConsultaChaveServiceGrpc.newBlockingStub(channel)
 
 }
